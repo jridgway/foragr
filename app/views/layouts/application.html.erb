@@ -1,13 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+<% if user_signed_in? %>
+  <li>
+  <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
+  </li>
+<% else %>
+  <li>
+  <%= link_to('Login', new_user_session_path)  %>  
+  </li>
+<% end %>
+
   <title>Foragr</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<%= form_tag '/posts', :method => 'get' do %>
+	<table>
+	    <tr><td>
+	        <input type="text" name="search_query"/>
+	    </td></tr>
+	    <tr><td align="right">
+	        <input type="submit" value="Search"/>
+	    </td></tr>
+	</table>
+<% end %>
 <%= yield %>
 
 </body>

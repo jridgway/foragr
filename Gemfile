@@ -27,6 +27,12 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
+# Devise gem
+gem 'devise', github: 'plataformatec/devise', branch: 'rails4'
+
+#Tagging gem 
+gem 'acts-as-taggable-on'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
